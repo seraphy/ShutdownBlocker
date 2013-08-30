@@ -43,7 +43,7 @@ ShutdownBlocker.exeは、Windows7(Vista以降)のログオフ、リブート、�
 ビルド方法
 ------------
 
-### Visual Studio 2012 Express For Desktop
+### Visual Studio 2012 Express For Desktop + ResEdit
 
 本アプリケーションは「VS Express for Desktop (2012 Update3)」のVisual C++で作成されています。
 
