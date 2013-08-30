@@ -13,6 +13,9 @@ HINSTANCE g_hInst;
 ATOM				MyRegisterClass(HINSTANCE hInstance);
 LRESULT CALLBACK	WndProc(HWND, UINT, WPARAM, LPARAM);
 
+///
+/// エントリポイント
+///
 int APIENTRY _tWinMain(_In_     HINSTANCE hInstance,
                        _In_opt_ HINSTANCE hPrevInstance,
                        _In_     LPTSTR    lpCmdLine,
@@ -22,11 +25,6 @@ int APIENTRY _tWinMain(_In_     HINSTANCE hInstance,
 	UNREFERENCED_PARAMETER(lpCmdLine);
 
 	g_hInst = hInstance;
-
-	WCHAR langName[10];
-	LCID id = GetUserDefaultLCID();
-	GetLocaleInfo(id, LOCALE_SISO639LANGNAME, langName, 10);
-	MessageBox(NULL, langName, L"LANG", MB_ICONINFORMATION | MB_OK);
 
 	// グローバル文字列を初期化しています。
 	MyRegisterClass(hInstance);
@@ -172,6 +170,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		break;
 
 	case WM_DESTROY:
+		// 一応、シャットダウンブロックは解除しておく.
+		// ※ ウィンドウの破棄により自動的に解除となる
+		ShutdownBlockReasonDestroy(hWnd);
+
 		// メインウィンドウの破棄によりメッセージループを終了する.
 		PostQuitMessage(0);
 		break;

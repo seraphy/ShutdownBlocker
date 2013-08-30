@@ -11,8 +11,8 @@
 //
 // Dialog resources
 //
-LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
-IDD_SHUTDOWNDELAY DIALOG 0, 0, 186, 95
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+IDD_SHUTDOWNDELAY DIALOG 0, 0, 186, 94
 STYLE DS_3DLOOK | DS_CENTER | DS_MODALFRAME | DS_SHELLFONT | WS_CAPTION | WS_VISIBLE | WS_POPUP | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "Shutdown Blocker"
@@ -20,16 +20,37 @@ CLASS "SHUTDOWNDELAY"
 FONT 8, "Ms Shell Dlg"
 {
     DEFPUSHBUTTON   "Apply", IDOK, 75, 70, 51, 14
-    PUSHBUTTON      "Exit", IDCANCEL, 129, 69, 51, 14
+    PUSHBUTTON      "Exit", IDCANCEL, 129, 70, 51, 14
     LTEXT           "Process Shutdown Level", IDC_STATIC, 7, 10, 79, 8, SS_LEFT
     EDITTEXT        IDC_SHUTDOWN_LEVEL, 97, 6, 40, 14, ES_AUTOHSCROLL
-    LTEXT           "Shutdown Block Reason", IDC_STATIC, 8, 29, 77, 8, SS_LEFT
+    LTEXT           "Shutdown Block Reason", IDC_STATIC, 8, 29, 173, 8, SS_LEFT
     EDITTEXT        IDC_SHUTDOWN_REASON, 7, 39, 174, 14, ES_AUTOHSCROLL
 }
 
 
 
-LANGUAGE LANG_NEUTRAL, SUBLANG_DEFAULT
+LANGUAGE LANG_JAPANESE, SUBLANG_JAPANESE_JAPAN
+IDD_SHUTDOWNDELAY DIALOG 0, 0, 186, 77
+STYLE DS_3DLOOK | DS_CENTER | DS_MODALFRAME | DS_SHELLFONT | WS_CAPTION | WS_VISIBLE | WS_POPUP | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Shutdown Blocker"
+CLASS "SHUTDOWNDELAY"
+FONT 8, "メイリオ"
+{
+    DEFPUSHBUTTON   "適用", IDOK, 75, 60, 51, 14
+    PUSHBUTTON      "終了", IDCANCEL, 129, 60, 51, 14
+    LTEXT           "シャットダウンの相対順序", IDC_STATIC, 7, 10, 79, 8, SS_LEFT
+    EDITTEXT        IDC_SHUTDOWN_LEVEL, 97, 6, 40, 14, ES_AUTOHSCROLL
+    LTEXT           "シャットダウンをブロックする理由", IDC_STATIC, 8, 27, 171, 8, SS_LEFT
+    EDITTEXT        IDC_SHUTDOWN_REASON, 7, 37, 174, 14, ES_AUTOHSCROLL
+}
+
+
+
+//
+// String Table resources
+//
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 STRINGTABLE
 {
     IDC_SHUTDOWNDELAY             "SHUTDOWNDELAY"
@@ -37,9 +58,8 @@ STRINGTABLE
     IDS_SHUTDOWN_REASON           "The shutdown is blocked. "
 }
 
-//
-// String Table resources
-//
+
+
 LANGUAGE LANG_JAPANESE, SUBLANG_JAPANESE_JAPAN
 STRINGTABLE
 {
@@ -49,12 +69,52 @@ STRINGTABLE
 }
 
 
+
 //
 // Icon resources
 //
-LANGUAGE LANG_NEUTRAL, SUBLANG_DEFAULT
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 IDI_SHUTDOWNDELAY  ICON           "icon.ico"
 
 
-LANGUAGE LANG_NEUTRAL, SUBLANG_DEFAULT
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 IDI_SMALL          ICON           "icon.ico"
+
+
+
+//
+// Version Information resources
+//
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+1 VERSIONINFO
+    FILEVERSION     1,0,0,0
+    PRODUCTVERSION  1,0,0,0
+    FILEOS          VOS__WINDOWS32
+    FILETYPE        VFT_APP
+    FILESUBTYPE     VFT2_UNKNOWN
+    FILEFLAGSMASK   0x00000000
+    FILEFLAGS       0x00000000
+{
+    BLOCK "StringFileInfo"
+    {
+        BLOCK "08000025"
+        {
+            VALUE "Comments", "https://github.com/seraphy/ShutdownBlocker"
+            VALUE "CompanyName", "seraphyware.jp"
+            VALUE "FileDescription", "Shutdown Blocker (https://github.com/seraphy/ShutdownBlocker)"
+            VALUE "FileVersion", "1,0,0,0"
+            VALUE "InternalName", "Shutdown Blocker"
+            VALUE "LegalCopyright", "seraphy 2013/08"
+            VALUE "LegalTrademarks", ""
+            VALUE "OriginalFilename", "ShutdownBlocker.exe"
+            VALUE "PrivateBuild", ""
+            VALUE "ProductName", "Shutdown Blocker"
+            VALUE "ProductVersion", "1,0,0,0"
+            VALUE "SpecialBuild", ""
+        }
+    }
+    BLOCK "VarFileInfo"
+    {
+        VALUE "Translation", 0x0800, 0x0025
+    }
+}
